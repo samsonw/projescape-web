@@ -8,13 +8,13 @@ except ImportError:
 setup(
     name='projescape-web',
     version='0.1',
-    description='',
-    author='',
+    description='a web site called projescape',
+    author='Projescape Team',
     author_email='',
-    url='',
+    url='http://projescape.lighthouseapp.com/',
     install_requires=[
         "Pylons>=1.0",
-        "SQLAlchemy>=0.5",
+        "SQLAlchemy>=0.6",
     ],
     setup_requires=["PasteScript>=1.6.3"],
     packages=find_packages(exclude=['ez_setup']),
