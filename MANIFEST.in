@@ -1,0 +1,3 @@
+include projescapeweb/config/deployment.ini_tmpl
+recursive-include projescapeweb/public *
+recursive-include projescapeweb/templates *
