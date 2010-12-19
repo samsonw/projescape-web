@@ -8,14 +8,31 @@ body {
     font-family: sans-serif;
 }
 a:link, a:visited {
+
+}
+#heading a:link, #heading a:visited, #footer a:link, #footer a:visited {
     color: #FFF;
     text-decoration:none;
 }
+#heading a:hover, #footer a:hover {
+    color: #FFF;
+    text-decoration:underline;
+}
 #page{
+    min-height:90%;
+}
+
+#heading, #content, #footer {
+    margin:0 auto;
+    width:930px;
+}
+
+#heading_wrap {
+    background:#3F5A23;
+    border-bottom:8px #75A641 solid;
 }
 
 #heading{
-    background:#19234c;
     color:#F0F0F0;
     position:relative;
     height:40px;
@@ -28,8 +45,7 @@ h1{
 #header_links{
     padding:5px;
     margin-top:10px;
-    margin-right:10%;
-    margin-left:75%;
+    margin-left:80%;
     font-weight:bold;
 }
 
@@ -44,7 +60,6 @@ h1{
     margin-left:auto;
     margin-right:auto;
     margin-top:30px;
-    width: 600px;
     padding:25px;
     background-color:#FFF;
     border:1px #CCC solid;
@@ -58,13 +73,17 @@ h1{
     color: #4C4219;
 }
 
+#footer_wrap {
+    border-top:2px #75A641 solid;
+    background:#3F5A23;
+}
+
 #footer{
-    background:#19234C;
     color:#F0F0F0;
-    bottom:0;
+/*    bottom:0;
     left:0;
-    right:0;
-    position:absolute;
+#    right:0;
+#    position:absolute;*/
     padding:5px 20px 5px 20px;
     font-size:12px;
 }
@@ -74,4 +93,47 @@ h1{
 #technical {
     float:right;
     font-size:10px;
+}
+
+/*---------------------------- demo page -------------------------------------*/
+#authors {
+    margin:25px auto;
+    text-align:center;
+    -moz-user-select: none;
+}
+.author_item {
+    margin:auto;
+    float: left;
+    width: 30%;
+    text-align:left;
+    margin-left:2.5%;
+}
+.author_avatar{
+    float:left;
+    padding:1px;
+    border:1px #EEE solid;
+    opacity: 0.8;
+}
+.author_avatar:after {
+    clear:both;
+    content:" ";
+    visibility:none;
+    display:block;
+}
+
+#authors h4 {
+    margin:0 0 10px 5px;
+    font-size:18px;
+}
+#authors p {
+    font-size:12px;   
+    color: #666;
+    margin-left:24px;
+    font-style:italic;
+}
+#authors:after {
+    content: " ";
+    display:block;
+    clear:both;
+    visibility: none;
 }
