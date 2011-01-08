@@ -10,6 +10,32 @@ body {
 a:link, a:visited {
 
 }
+p {
+    line-height:150%;
+    margin-bottom:5px;
+}
+
+input[type=text], input[type=password] {
+    border:1px #CCC solid;
+    font-size: 24px;
+    padding: 3px;
+}
+input[type=text]:active, input[type=password]:focus {
+    border:1px #999 solid;
+}
+input[type=button], input[type=submit] {
+    background-color: #EEE;
+    color: #333;
+    padding:5px 10px;
+    border:1px #CCC solid;
+    font-size:18px;
+    font-weight:bold;
+}
+input[type=button]:hover, input[type=submit]:hover {
+    background-color:#C4DFA7;
+    cursor: pointer;
+}
+
 #heading a:link, #heading a:visited, #footer a:link, #footer a:visited {
     color: #FFF;
     text-decoration:none;
@@ -45,7 +71,8 @@ h1{
 #header_links{
     padding:5px;
     margin-top:10px;
-    margin-left:80%;
+    margin-left:60%;
+    text-align:right;
     font-weight:bold;
 }
 
@@ -55,22 +82,38 @@ h1{
     margin-right:auto;
 }
 
-#slogan {
+#slogan, #login_panel, #user_panel {
     text-align:center;
     margin-left:auto;
     margin-right:auto;
     margin-top:30px;
+    margin-bottom:30px;
     padding:25px;
     background-color:#FFF;
     border:1px #CCC solid;
     -moz-border-radius:5px;
+    -webkit-border-radius:5px;
 }
+
 .extreme_large{
     font-size:80px;
     font-weight:bold;
 }
 .highlight {
     color: #4C4219;
+}
+.flash {
+    background-color: #FFC;
+    color: #F33;
+    padding:2px;
+
+}
+.grey{
+    color:#999;
+}
+.label {
+    color:#666;
+
 }
 
 #footer_wrap {
@@ -136,4 +179,51 @@ h1{
     display:block;
     clear:both;
     visibility: none;
+}
+
+/*-------------------------- login --------------------- */
+#login_panel {
+    width:480px;
+    margin-bottom:30px;
+    text-align:left;
+}
+
+#login_panel h3 {
+    font-size:24px;
+}
+#login_panel h4 {
+    margin-top:15px;
+    font-size:18px;
+    font-weight: normal;
+    color:#666;
+    border-bottom:1px #CCC solid;
+}
+#login_panel label{
+    font-size:12px;
+    color: #666;
+}
+
+/*------------------------- user portal ----------------- */
+#user_panel {
+    text-align:left;
+}
+#user_panel h3 {
+    font-size:36px;
+    padding-bottom:5px;
+    border-bottom:2px #999 solid;
+}
+#user_avatar {
+    float: right;
+    background-color: #FFF;
+    padding:2px;
+}
+
+#user_props {
+    list-style:none;
+    margin-left:30px;
+    margin-top:10px;
+}
+#user_props li {
+    line-height:180%;
+    font-size:12px;
 }

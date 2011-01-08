@@ -3,7 +3,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <title>${self.title()} | projescape</title>
-    <link rel="stylesheet" href="default.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/default.css" type="text/css" media="screen" charset="utf-8" />
     
 </head>
 
@@ -14,11 +14,12 @@
             <div id="heading">
                 <h1>projescape</h1> 
                 <div id="header_links">
-                    % if 'user_id' in session:
-                        <a href="#">Sign in</a> |
+                    % if not 'user.id' in session:
+                    <a href="${h.url(controller='login', action='index')}">Sign in</a> |
                         <a href="#">Sign up</a>
                     % else:
-                    Welcome <img src="${session['user_avatar_url']}" /> <strong>${session['user_id']}</strong> !
+                    Welcome <img src="${session['user.avatar']}" /> <strong>${session['user.id']}</strong>! |
+                    <a href="${h.url(controller='login', action='logout')}">Logout</a>
                     % endif
                 </div>
             </div>
