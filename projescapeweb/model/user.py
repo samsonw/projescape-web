@@ -30,10 +30,10 @@ class UserDetail(Base):
 
     _id = Column(Integer, primary_key=True)
     last_login = Column(DateTime())
-    display_name = Column(String(length=32, convert_unicode=True, assert_unicode=True))
-    job_title = Column(String(length=128, convert_unicode=True, assert_unicode=True))
-    description = Column(String(length=256, convert_unicode=True, assert_unicode=True))
-    location = Column(String(length=64, convert_unicode=True, assert_unicode=True))
+    display_name = Column(String(length=32, convert_unicode=True))
+    job_title = Column(String(length=128, convert_unicode=True))
+    description = Column(String(length=256, convert_unicode=True))
+    location = Column(String(length=64, convert_unicode=True))
     web_site = Column(String(length=64))
     social_links = Column(PickleType())
 
