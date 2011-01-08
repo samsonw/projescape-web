@@ -1,0 +1,30 @@
+<%inherit file='/base.html' />
+
+<%def name="title()">LOGIN</%def>
+
+<%def name="body()">
+<div id="login_panel">
+    <h3>Sign in to projescape</h3>
+
+    % if 'flash' in session:
+    <div class="flash">${session.pop('flash')}</div>
+    % endif
+
+    <h4>Login with username/email</h4>
+    <form action="${h.url(controller='login', action='login')}" method="post">
+        <p><label for="login">Login:</label><br/>
+           <input type="text" name="login" id="login" size="24" placeholder="username/email" /></p>
+        <p><label for="passwd">Password:</label><br/>
+        <input type="password" name="passwd" id="passwd" size="24" placeholder="password" /></p>
+        <p><input type="submit" value="Sign in" /></p>
+    </form>
+
+    <h4>Login with OpenID <img src="/openid-icon.png" alt="openid" /></h4>
+
+    <form action="${h.url(controller='login', action='openid')}" method="post">
+        <p><label for="openid">OpenID:</label><br/>
+        <input type="text" name="openid" id="openid" size="24" placeholder="openid identifier" /></p>
+        <p><input type="submit" value="Sign in" /></p>
+    </form>
+</div>
+</%def>

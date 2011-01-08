@@ -1,0 +1,27 @@
+<%inherit file="/base.html" />
+
+<%def name="title()">${c.user.username}</%def>
+
+<%def name="body()">
+<div id="user_panel">
+    <h3>${c.user.username} <span class="grey">(${c.user.user_detail.display_name})</span>
+<img src="${h.gravatar(c.user.email_md5, False, 128)}" alt="user avatar" id="user_avatar" /></h3>
+
+<ul id="user_props">
+    <li><span class="label">Title:</span> ${c.user.user_detail.job_title}</li>
+    <li><span class="label">Location:</span> ${c.user.user_detail.location}</li>
+    <li><span class="label">Web site:</span> ${h.link_to(c.user.user_detail.web_site, c.user.user_detail.web_site)}</li>
+    <li><span class="label">Last seen:</span> ${c.user.user_detail.last_login}</li>
+    <li><span class="label">Member since:</span> ${c.user.created_time}</li>
+
+    % for website,link in c.user.user_detail.social_links.items():
+    <li><span class="label">${website.capitalize()}:</span> ${h.link_to(link, link)}</li>
+    % endfor
+
+    <li><span class="label">Description:</span> <br /> ${c.user.user_detail.description}</li>
+</ul>
+
+</div>
+
+
+</%def>
