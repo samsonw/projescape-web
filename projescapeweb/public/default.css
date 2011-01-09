@@ -15,12 +15,12 @@ p {
     margin-bottom:5px;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
     border:1px #CCC solid;
     font-size: 24px;
     padding: 3px;
 }
-input[type=text]:active, input[type=password]:focus {
+input[type=text]:active, input[type=password]:focus, input[type=email]:focus {
     border:1px #999 solid;
 }
 input[type=button], input[type=submit] {
@@ -86,7 +86,7 @@ h1{
     margin-right:auto;
 }
 
-#slogan, #login_panel, #user_panel {
+.panel {
     text-align:center;
     margin-left:auto;
     margin-right:auto;
@@ -97,6 +97,10 @@ h1{
     border:1px #CCC solid;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
+}
+
+.narrow_panel {
+    width:480px;
 }
 
 .extreme_large{
@@ -187,8 +191,6 @@ h1{
 
 /*-------------------------- login --------------------- */
 #login_panel {
-    width:480px;
-    margin-bottom:30px;
     text-align:left;
 }
 
@@ -203,6 +205,18 @@ h1{
     border-bottom:1px #CCC solid;
 }
 #login_panel label{
+    font-size:12px;
+    color: #666;
+}
+
+/*------------------------- register -------------------- */
+#register_panel {
+    text-align:left;
+}
+#register_panel h3 {
+    font-size:24px;
+}
+#register_panel label{
     font-size:12px;
     color: #666;
 }

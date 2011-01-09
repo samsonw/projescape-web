@@ -16,7 +16,7 @@
                 <div id="header_links">
                     % if not 'user.id' in session:
                     <a href="${h.url(controller='login', action='index')}">Sign in</a> |
-                        <a href="#">Sign up</a>
+                    <a href="${h.url(controller='register', action='index')}">Sign up</a>
                     % else:
                     Welcome <img src="${session['user.avatar']}" /> <strong>${session['user.id']}</strong>! |
                     <a href="${h.url(controller='login', action='logout')}">Logout</a>
@@ -41,7 +41,7 @@
         </div>
 
         <div id="technical">
-            python 2.6.6 | pylons 1.0 | sqlalchemy 0.6.5 | projescape m0
+            python 2.6.6 | pylons 1.0 | sqlalchemy 0.6.5 | projescape m1
         </div>
 
         <div id="copyrights">

@@ -3,7 +3,7 @@
 <%def name="title()">${c.user.username}</%def>
 
 <%def name="body()">
-<div id="user_panel">
+<div id="user_panel" class="panel">
     <h3>${c.user.username} <span class="grey">(${c.user.user_detail.display_name})</span>
 <img src="${h.gravatar(c.user.email_md5, False, 128)}" alt="user avatar" id="user_avatar" /></h3>
 
