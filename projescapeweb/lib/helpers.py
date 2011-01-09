@@ -7,7 +7,9 @@ available to Controllers. This module is available to templates as 'h'.
 #from webhelpers.html.tags import checkbox, password
 
 from hashlib import md5 as _md5
-from pylons import url
+from email.mime.text import MIMEText
+
+from pylons import url, app_globals
 from webhelpers.html.tags import *
 
 def md5(text):
@@ -24,4 +26,12 @@ def gravatar(email, md5=True, size=None):
         return base_url + ("?s=%d" % size)
     else:
         return base_url
+
+def sendmail(from_addr, to_addr, subject, content):
+    msg = MIMEText(content)
+    msg['Subject'] = subject
+    msg['From'] = from_addr
+    msg['To'] = to_addr
+
+    app_globals.smtp.sendmail(from_addr, [to_addr], msg.as_string())
 

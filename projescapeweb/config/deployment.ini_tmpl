@@ -38,6 +38,14 @@ sqlalchemy.url = sqlite:///production.db
 # execute malicious code after an exception is raised.
 set debug = false
 
+# smtp server to send email
+smtp.host = smtp.host
+smtp.port = smtp.port
+smtp.ssl = false
+smtp.auth = true
+smtp.user = smtp.user
+smtp.pass = smtp.pass
+
 
 # Logging configuration
 [loggers]
