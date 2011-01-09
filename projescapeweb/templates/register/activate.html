@@ -1,0 +1,13 @@
+<%inherit file="/base.html" />
+
+<%def name="title()">ACTIVATE</%def>
+
+<%def name="body()">
+<div class="panel">
+    % if c.success:
+    <p>Your account has been successfully activated. Login to continue.</p>
+    % else:
+    <p>Cannot activate your account.</p>
+    % endif
+</div>
+</%def>

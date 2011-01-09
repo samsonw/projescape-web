@@ -1,6 +1,7 @@
 """The application's Globals object"""
 
 import smtplib
+import redis
 
 from beaker.cache import CacheManager
 from beaker.util import parse_cache_config_options
@@ -18,7 +19,9 @@ class Globals(object):
 
         """
         self.cache = CacheManager(**parse_cache_config_options(config))
+        self.url_root = config['projescape.root']
         self.__init_smtp(config)
+        self.__init_redis(config)
 
     def __init_smtp(self, config):
         host = config['smtp.host']
@@ -35,4 +38,11 @@ class Globals(object):
 
         if auth:
             self.smtp.login(user, passwd)
+
+    def __init_redis(self, config):
+        host = config['redis.host']
+        port = int(config['redis.port'])
+        passwd = config['redis.passwd'] if 'redis.passwd' in config else None
+
+        self.redis = redis.Redis(host=host, port=port, password=passwd)
 

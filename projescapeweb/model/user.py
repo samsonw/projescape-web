@@ -1,6 +1,6 @@
 from sqlalchemy import Column, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.types import Integer, String, DateTime, PickleType
+from sqlalchemy.types import Integer, String, DateTime, PickleType, Boolean
 
 from projescapeweb.model.meta import Base
 
@@ -17,6 +17,7 @@ class User(Base):
     open_id = Column(String(128))
     open_id_alt = Column(String(128))
     created_time = Column(DateTime())
+    active = Column(Boolean())
     user_detail_id = Column(Integer, ForeignKey("user_detail._id"))
     user_detail = relationship("UserDetail")
 

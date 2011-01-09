@@ -14,9 +14,11 @@
     <li><span class="label">Last seen:</span> ${c.user.user_detail.last_login}</li>
     <li><span class="label">Member since:</span> ${c.user.created_time}</li>
 
+    % if c.user.user_detail.social_links is not None:
     % for website,link in c.user.user_detail.social_links.items():
     <li><span class="label">${website.capitalize()}:</span> ${h.link_to(link, link)}</li>
     % endfor
+    % endif
 
     <li><span class="label">Description:</span> <br /> ${c.user.user_detail.description}</li>
 </ul>

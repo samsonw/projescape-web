@@ -46,6 +46,13 @@ smtp.auth = true
 smtp.user = smtp.user
 smtp.pass = smtp.pass
 
+# redis
+redis.host = redis.host
+redis.port = redis.port
+redis.pass = redis.pass
+
+# app root url
+projescape.root = http://localhost:8080
 
 # Logging configuration
 [loggers]
