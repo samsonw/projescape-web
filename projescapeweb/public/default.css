@@ -74,6 +74,10 @@ h1{
     margin-left:60%;
     text-align:right;
     font-weight:bold;
+    font-size:12px;
+}
+#header_links img {
+    vertical-align:middle;
 }
 
 #content{
