@@ -1,6 +1,7 @@
 import logging
 
 from pylons import request, response, session, tmpl_context as c, url
+from pylons.i18n import _
 from pylons.controllers.util import abort, redirect
 from pylons.decorators.rest import restrict
 
@@ -39,7 +40,7 @@ class LoginController(BaseController):
             session['user.avatar'] = avatar_url
             redirect(url(controller='people', action='home', id=user.username))
         else:
-            session['flash'] = 'Invalid login'
+            session['flash'] = _('Invalid login')
             redirect(url(controller='login', action='index'))
 
     def logout(self):

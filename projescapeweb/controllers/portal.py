@@ -10,5 +10,4 @@ log = logging.getLogger(__name__)
 class PortalController(BaseController):
 
     def index(self):
-        c.title = 'Projescape'
         return render('/index.html')
