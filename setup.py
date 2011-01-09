@@ -15,6 +15,8 @@ setup(
     install_requires=[
         "Pylons>=1.0",
         "SQLAlchemy>=0.6",
+        "Redis>=2.2.0",
+        "recaptcha-client>=1.0.5",
     ],
     setup_requires=["PasteScript>=1.6.3"],
     packages=find_packages(exclude=['ez_setup']),

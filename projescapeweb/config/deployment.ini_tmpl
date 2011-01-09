@@ -54,6 +54,10 @@ redis.pass = redis.pass
 # app root url
 projescape.root = http://localhost:8080
 
+# recaptcha
+recaptcha.public = 6LceTMASAAAAANsAu3BGkg-QOC_5Z5aKED2tTQkf 
+recaptcha.private = 6LceTMASAAAAAKe6d8xNOiwrZl4INITx2EG4X8vo 
+
 # Logging configuration
 [loggers]
 keys = root
