@@ -21,6 +21,7 @@
         <input type="email" name="email" id="email" size="24" placeholder="email" required="required"  /></p>
 
 
+        % if c.enable_captcha:
         <script type="text/javascript"
             src="http://www.google.com/recaptcha/api/challenge?k=${c.pubkey}">
         </script>
@@ -32,6 +33,7 @@
             <input type="hidden" name="recaptcha_response_field"
                 value="manual_challenge">
         </noscript>
+        % endif
 
         <p><input type="submit" value="OK, Sign me up" /></p>
     </form>

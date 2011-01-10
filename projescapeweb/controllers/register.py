@@ -19,6 +19,7 @@ log = logging.getLogger(__name__)
 class RegisterController(BaseController):
 
     def index(self):
+        c.enable_captcha = config['recaptcha.enable']
         c.pubkey = config['recaptcha.public']
         return render('register/index.html')
 
