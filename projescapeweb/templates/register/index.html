@@ -13,15 +13,19 @@
     <form action="${h.url(controller='register', action='save')}" method="post">
         <p><label for="username">Username:</label><br/>
            <input type="text" name="username" id="username" size="24" placeholder="username" autofocus="autofocus" required="required" /></p>
+
+        % if 'register.disable_password' not in session:
         <p><label for="passwd">Password:</label><br/>
         <input type="password" name="passwd" id="passwd" size="24" placeholder="password"  required="required" /></p>
         <p><label for="passwd_2">Retype Password:</label><br/>
         <input type="password" name="passwd_2" id="passwd_2" size="24" placeholder="password again"  required="required" /></p>
+        % endif
+
         <p><label for="email">Email:</label><br/>
         <input type="email" name="email" id="email" size="24" placeholder="email" required="required"  /></p>
 
 
-        % if c.enable_captcha:
+        % if c.enable_captcha and 'register.disable_captcha' not in session:
         <script type="text/javascript"
             src="http://www.google.com/recaptcha/api/challenge?k=${c.pubkey}">
         </script>

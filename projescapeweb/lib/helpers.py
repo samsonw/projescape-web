@@ -35,3 +35,6 @@ def sendmail(from_addr, to_addr, subject, content):
 
     app_globals.smtp.sendmail(from_addr, [to_addr], msg.as_string())
 
+def to_bool(s):
+    return s.upper == 'TRUE'
+

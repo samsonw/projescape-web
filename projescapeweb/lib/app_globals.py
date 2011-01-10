@@ -26,8 +26,8 @@ class Globals(object):
     def __init_smtp(self, config):
         host = config['smtp.host']
         port = config['smtp.port']
-        ssl = config['smtp.ssl']
-        auth = config['smtp.auth']
+        ssl = config['smtp.ssl'].upper() == 'TRUE'
+        auth = config['smtp.auth'].upper() == 'TRUE'
         user = config['smtp.user']
         passwd = config['smtp.pass']
 
