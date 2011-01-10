@@ -22,6 +22,7 @@ static_files = true
 cache_dir = %(here)s/data
 beaker.session.key = projescapeweb
 beaker.session.secret = ${app_instance_secret}
+beaker.session.auto =  true
 app_instance_uuid = ${app_instance_uuid}
 
 # If you'd like to fine-tune the individual locations of the cache data dirs
