@@ -1,0 +1,26 @@
+<%inherit file="/base.html" />
+
+<%def name="title()">RESET PASSWORD</%def>
+
+<%def name="body()">
+<div id="reset_pass" class="narrow_panel panel">
+    <h3>Reset Password</h3> 
+
+    <form action="${h.url(controller='register', action='save_password')}" method="post">
+    %if session['register.require_password']:
+        <p><label for="old_passwd">Old Password:</label><br/>
+           <input type="password" name="old_passwd" id="old_passwd" size="24" placeholder="Old Password" required="required" /></p>
+    %else:
+    <input type="hidden" name="email" value="${c.email}" />
+    %endif
+
+        <p><label for="passwd">New Password:</label><br/>
+           <input type="password" name="passwd" id="passwd" size="24" placeholder="New Password" required="required" /></p>
+
+        <p><label for="passwd2">Retype:</label><br/>
+           <input type="password" name="passwd2" id="passwd2" size="24" placeholder="New Password" required="required" /></p>
+
+        <p><input type="submit" value="Change Password" /></p>
+    </form>
+</div>
+</%def>
