@@ -6,10 +6,6 @@
 <div id="login_panel" class="narrow_panel panel">
     <h3>Sign in to projescape</h3>
 
-    % if 'flash' in session:
-    <div class="flash">${session.pop('flash')}</div>
-    % endif
-
     <h4>Login with username/email</h4>
     <form action="${h.url(controller='login', action='login')}" method="post">
         <p><label for="login">Login:</label><br/>

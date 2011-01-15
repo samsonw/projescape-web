@@ -105,3 +105,61 @@ class RegisterController(BaseController):
 
         redirect(url(controller='register', action='pending'))
 
+    def reset(self, id=None):
+        ## neither reset password nor modify password
+        if id is None and 'user.id' not in session:
+            abort(403)
+            return
+
+        if id is not None:
+            email = g.redis.get(id)
+            if email is not None:
+                c.email = email
+                session['register.require_password'] = False
+            else:
+                abort(403)
+                return 
+        else:
+            session['register.require_password'] = True
+            
+        return render('register/reset.html')
+
+    @restrict('POST')
+    def save_password(self):
+        if 'register.require_password' not in session:
+            abort(403)
+            return
+
+        password = request.params['passwd']
+        password_2 = request.params['passwd2']
+        if password != password_2:
+            session['flash'] = _('Password missmatch')
+            redirect(url(controller='register', action='reset'))
+            return;
+        
+        user_q = Session.query(User)
+        if session['register.require_password']:
+            username = session['user.id']
+            old_password = md5(request.params['old_passwd'])
+
+            user = user_q.filter_by(username=username, password=old_password).first()
+            if user is None:
+                session['flash'] = _('Invalid password')
+                redirect(url(controller='register', action='reset'))
+                return;
+                
+        else:
+            user = user_q.filter_by(email=email).first()
+            if user is None:
+                session['flash'] = _('Invalid email')
+                redirect(url(controller='register', action='reset'))
+                return;
+
+        user.password = md5(password)
+        Session.add(user)
+        Session.commit()
+
+
+        session['flash'] = _('Password updated')
+        redirect(url(controller='people', action='home', id=user.username))
+

@@ -6,10 +6,6 @@
 <div id="register_panel" class="narrow_panel panel">
     <h3>Join projescape</h3>
 
-    % if 'flash' in session:
-    <div class="flash">${session.pop('flash')}</div>
-    % endif
-
     <form action="${h.url(controller='register', action='save')}" method="post">
         <p><label for="username">Username:</label><br/>
            <input type="text" name="username" id="username" size="24" placeholder="username" autofocus="autofocus" required="required" /></p>

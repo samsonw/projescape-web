@@ -5,7 +5,7 @@
 body {
     background-color:#F0F0F0;
     color:000;
-    font-family: sans-serif;
+    font-family: 'Cantarell', sans-serif;
 }
 a:link, a:visited {
 
@@ -17,10 +17,11 @@ p {
 
 input[type=text], input[type=password], input[type=email] {
     border:1px #CCC solid;
+    background-color:#FCFFDF;
     font-size: 24px;
     padding: 3px;
 }
-input[type=text]:active, input[type=password]:focus, input[type=email]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
     border:1px #999 solid;
 }
 input[type=button], input[type=submit] {
@@ -35,7 +36,18 @@ input[type=button]:hover, input[type=submit]:hover {
     background-color:#C4DFA7;
     cursor: pointer;
 }
-
+input[required=required]:after {
+    content:'(*)';
+    color:#F00;
+    display:inline;
+}
+label{
+    font-size:12px;
+    color: #666;
+}
+h3{
+    font-size: 24px;
+}
 #heading a:link, #heading a:visited, #footer a:link, #footer a:visited {
     color: #FFF;
     text-decoration:none;
@@ -87,7 +99,7 @@ h1{
 }
 
 .panel {
-    text-align:center;
+    text-align:left;
     margin-left:auto;
     margin-right:auto;
     margin-top:30px;
@@ -113,8 +125,11 @@ h1{
 .flash {
     background-color: #FFC;
     color: #F33;
-    padding:2px;
-
+    padding:5px;
+    border:1px #F33 solid;
+    margin-top:15px;
+    font-weight:bold;
+    text-align:left;
 }
 .grey{
     color:#999;
@@ -168,7 +183,7 @@ h1{
 .author_avatar:after {
     clear:both;
     content:" ";
-    visibility:none;
+    visibility:hidden;
     display:block;
 }
 
@@ -194,9 +209,6 @@ h1{
     text-align:left;
 }
 
-#login_panel h3 {
-    font-size:24px;
-}
 #login_panel h4 {
     margin-top:15px;
     font-size:18px;
@@ -204,21 +216,10 @@ h1{
     color:#666;
     border-bottom:1px #CCC solid;
 }
-#login_panel label{
-    font-size:12px;
-    color: #666;
-}
 
 /*------------------------- register -------------------- */
 #register_panel {
     text-align:left;
-}
-#register_panel h3 {
-    font-size:24px;
-}
-#register_panel label{
-    font-size:12px;
-    color: #666;
 }
 
 /*------------------------- user portal ----------------- */

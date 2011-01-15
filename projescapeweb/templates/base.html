@@ -3,7 +3,9 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <title>${self.title()} | projescape</title>
+    <link href='http://fonts.googleapis.com/css?family=Cantarell:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/default.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="/mootools.js" type="text/javascript"></script>
     <script src="/pjs.js" type="text/javascript"></script>    
 </head>
 
@@ -26,6 +28,9 @@
         </div>
 
     <div id="content">
+    % if 'flash' in session:
+    <div class="flash">${session.pop('flash')}</div>
+    % endif
         ${self.body()}
     </div>
 
