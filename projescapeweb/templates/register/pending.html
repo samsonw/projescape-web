@@ -4,6 +4,10 @@
 
 <%def name="body()">
 <div class="panel">
-    <p>Thank you for registration. An email has been sent to you (${session['user.email']}), click the url inside to active your account.</p> 
+    <h3>Your account is pending for confirmation.</h3>
+    <p>Thank you for registration. 
+    Your account is pending confirmation.
+    Check your email box <strong>${session['user.email']}</strong> and simply click the url inside to activate your account.</p> 
+    <p>If you have not received the mail, click this button to <button onclick="window.location='/register/reconfirm'">Resend confirmation email</button></p>
 </div>
 </%def>

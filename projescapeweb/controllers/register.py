@@ -24,8 +24,32 @@ class RegisterController(BaseController):
         return render('register/index.html')
 
     def pending(self):
-
+        if 'user.email' not in session:
+            abort(403)
+            return
         return render('register/pending.html')
+
+    def reconfirm(self):
+        email = session['user.email']
+        if email is None:
+            abort(403)
+            return
+
+        ## store activation data
+        activation_id = uuid.uuid1().hex
+        g.redis.set(activation_id, email)
+        g.redis.expire(activation_id, 1*24*60*60) # store the data for 1 day
+
+        ## send activation email
+        activation_link = g.url_root + url(controller='register', 
+                action='activate', id=activation_id)
+        c.activation_link = activation_link
+        content = render('register/activation.email')
+        ## TODO maybe better to do it in background
+        sendmail('no-reply@projescape', email, _('Activate your account in Projescape'), content)
+
+        session['flash'] =  _('Confirmation email has been sent to you.')
+        redirect(url(controller='register', action='pending'))
 
     def activate(self, id):
         email = g.redis.get(id)
@@ -103,6 +127,7 @@ class RegisterController(BaseController):
         ## TODO maybe better to do it in background
         sendmail('no-reply@projescape', email, _('Activate your account in Projescape'), content)
 
+        session['flash'] =  _('Confirmation email has been sent to you.')
         redirect(url(controller='register', action='pending'))
 
     def reset(self, id=None):

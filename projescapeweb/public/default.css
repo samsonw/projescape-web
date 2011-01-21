@@ -10,6 +10,8 @@ body {
 a:link, a:visited {
 
 }
+a:hover {
+}
 p {
     line-height:150%;
     margin-bottom:5px;
@@ -51,10 +53,13 @@ h3{
 #heading a:link, #heading a:visited, #footer a:link, #footer a:visited {
     color: #FFF;
     text-decoration:none;
+    padding:2px 5px;
 }
 #heading a:hover, #footer a:hover {
-    color: #FFF;
-    text-decoration:underline;
+    color:#FCFFDF;
+    background-color: #EFB20E;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
 }
 #page{
     min-height:90%;
@@ -79,6 +84,9 @@ h3{
 h1{
     margin-left:10px;
     float:left;
+}
+h1 a:hover{
+    text-decoration:none;
 }
 #header_links{
     padding:5px;

@@ -35,10 +35,15 @@ class LoginController(BaseController):
             user = user_q.filter_by(username=username, password=passwd_md5).first()
 
         if user is not None:
-            session['user.id'] = user.username
-            avatar_url = gravatar(user.email_md5, md5=False, size=24)
-            session['user.avatar'] = avatar_url
-            redirect(url(controller='people', action='home', id=user.username))
+            if user.active:
+                session['user.id'] = user.username
+                avatar_url = gravatar(user.email_md5, md5=False, size=24)
+                session['user.avatar'] = avatar_url
+                redirect(url(controller='people', action='home', id=user.username))
+                return 
+            else:
+                session['user.email'] = user.email
+                redirect(url(controller='register', action='pending'))
         else:
             session['flash'] = _('Invalid login')
             redirect(url(controller='login', action='index'))
